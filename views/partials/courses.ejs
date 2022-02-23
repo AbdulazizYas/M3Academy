@@ -1,0 +1,24 @@
+
+<div class="container mb-3 mt-3">
+  <h2 class="title m-0 mb-5 text-white bg-secondary px-3 py-2" text-center><%= course.name %></h2>
+
+  <h5>Files: </h5>
+  <hr>
+
+   <div class="files-container grid">
+
+    <% if (course.folders.length > 0 || course.files.length > 0){ %>
+      <% course.folders.forEach(folder => { %>
+        <a href="/folders/<%=folder.id%>" class="d-flex flex-column justify-content-center align-items-center">
+
+          <img src="/folder.svg" class="file-img img-fluid">
+          <p><%= folder.name %></p>
+
+        </a>
+      <%})%>
+    <%} else { %>
+      <p>There is no content in this course yet..</p>
+    <% } %>
+
+  </div>
+</div>

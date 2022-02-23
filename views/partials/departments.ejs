@@ -1,0 +1,33 @@
+
+<div class="depts container mb-3 mt-3">
+
+  <h2 class="title m-0 mb-5 text-white bg-secondary px-3 py-2">Departments:</h2>
+
+  <% if (depts.length > 0){ %>
+    <% depts.forEach(dept => { %>
+      <div class="dept mb-5 rounded-3 overflow-hidden">
+        <div class="dept-name text-white bg-primary p-3 fs-3 fw-bold">
+          <p class="d-flex align-items-center mb-0"><%=dept.name%></p>
+        </div>
+        
+        <div class="dept-courses grid p-4">
+
+          <%if (dept.courses.length > 0){ %>
+            <% dept.courses.forEach(course => { %>
+              <div class="course">
+                <a href="/courses/<%=course.id%>"><%=course.name%></a>
+              </div>
+            <% }) %>
+          <%} else { %>
+            <p>There is no courses posted yet..</p>
+          <%}%>
+
+        </div>
+      </div>
+    <% }) %>
+  <%} else { %>
+    <p>There is no departments posted yet..</p>
+  <%}%>
+
+
+</div>
